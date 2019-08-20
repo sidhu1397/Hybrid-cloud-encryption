@@ -1,0 +1,45 @@
+ private static async Task showHeroCard(ITurnContext turnContext)
+        {
+            List<CardAction> cardbuttons = new List<CardAction>();
+            CardAction button1 = new CardAction()
+            {
+                Type="imBack",
+                Title= "How to Activate a project in enterProj application?",
+                Value="1"
+            };
+            CardAction button2 = new CardAction()
+            {
+                Type = "imBack",
+                Title = "How to Add a Team member in a Project in the enterProj Application?" ,
+                Value = "2"
+            };
+            CardAction button3 = new CardAction()
+            {
+                Type = "imBack",
+                Title = "How to Assign Ownership in a Project in the enterProj Application?",
+                Value = "3"
+            };
+            CardAction button4 = new CardAction()
+            {
+                Type = "imBack",
+                Title = "How to EnterProj New Project Creation?",
+                Value = "4"
+            };
+  cardbuttons.Add(button1);
+            cardbuttons.Add(button2);
+            cardbuttons.Add(button3);
+            cardbuttons.Add(button4);
+            HeroCard card = new HeroCard()
+            {
+                Title = "Welcome",
+                Buttons = cardbuttons
+                
+            };
+            var reply = MessageFactory.Attachment(card.ToAttachment());
+            await turnContext.SendActivityAsync(reply);
+
+
+
+
+
+        }
